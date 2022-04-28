@@ -1,0 +1,25 @@
+Script Necesario para el registro de Empleado
+CREATE TABLE Empleado (
+  idEmpleado SERIAL  NOT NULL ,
+  Nombre VARCHAR    ,
+PRIMARY KEY(idEmpleado));
+
+CREATE TABLE TipoProducto (
+  idTipoProducto SERIAL  NOT NULL ,
+  Tipo VARCHAR      ,
+PRIMARY KEY(idTipoProducto));
+
+CREATE TABLE Producto (
+  idProducto SERIAL  NOT NULL ,
+  TipoProducto_idTipoProducto INTEGER   NOT NULL ,
+  Nombre VARCHAR      ,
+PRIMARY KEY(idProducto),
+  FOREIGN KEY(TipoProducto_idTipoProducto)
+    REFERENCES TipoProducto(idTipoProducto));
+CREATE TABLE Precio (
+  idPrecio SERIAL  NOT NULL ,
+  Producto_idProducto INTEGER   NOT NULL ,
+  Detalle VARCHAR      ,
+PRIMARY KEY(idPrecio, Producto_idProducto),
+  FOREIGN KEY(Producto_idProducto)
+    REFERENCES Producto(idProducto));
