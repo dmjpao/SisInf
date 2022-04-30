@@ -1,0 +1,76 @@
+void presentarIU(){
+     Statement  at = null;
+      DefaultTableModel modelo = new DefaultTableModel();
+  modelo.addColumn("Interfaz");
+ // modelo.addColumn("Nombre");  
+  //modelo.addColumn("Precio");
+  //modelo.addColumn("Tiempo");
+  tablaa.setModel(modelo);
+  DefaultComboBoxModel combo = new DefaultComboBoxModel();
+ String datos[] = new String[1];
+
+        try {
+             at = Conexion.createStatement();
+          
+            ResultSet rs = at.executeQuery("Select IU_USUARIO('" +nombree.getText()+"')");
+            while (rs.next()){
+                datos[0]= rs.getString("iu_usuario");
+                    /*if(datos[0] == "1"){
+                         new Inventarios().setVisible(true);
+                    }*/
+                 
+                //datos[1]= rs.getString("nombre");
+               // datos[2]= rs.getString("precio");
+               // datos[3]= rs.getString("tiempo");
+                modelo.addRow(datos); 
+            }
+           // JOptionPane.showMessageDialog(null, "Acepta para continuar");
+            rs.close();
+            at.close();
+        } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
+       // System.out.println(tablaa.getValueAt(0, 0).toString()); //filas t columnas
+    }  
+
+
+
+
+
+
+
+void mostrarinterfaz(){
+    
+           inventariobtn.setEnabled(false); 
+           ventasbtn.setEnabled(false); 
+           cajabtn.setEnabled(false); 
+           contabilidadbtn.setEnabled(false); 
+    
+int cols = tablaa.getColumnCount();
+int fils = tablaa.getRowCount();
+for(int i=0; i<fils; i++) {
+for(int j=0; j<cols; j++){
+    String valor=tablaa.getValueAt(i, j).toString();
+        if ("1".equals(valor) ) {
+       // new Inventarios().setVisible(true);
+       inventariobtn.setEnabled(true);      
+        }
+        if ("2".equals(valor) ) {
+       contabilidadbtn.setEnabled(true);      
+        }
+        if ("3".equals(valor) ) {
+       cajabtn.setEnabled(true);      
+        }
+        if ("8".equals(valor) ) {
+       ventasbtn.setEnabled(true);      
+        }
+//System.out.println(tablaa.getValueAt(i, j).toString());
+
+}
+}
+
+    
+}
