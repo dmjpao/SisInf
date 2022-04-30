@@ -75,7 +75,7 @@ CREATE TABLE Sesion (
   idSesion SERIAL  NOT NULL ,
   Usuario_idUsuario INTEGER   NOT NULL ,
   PID INTEGER    ,
-  IP VARCHAR      ,
+  IP INET      ,
 PRIMARY KEY(idSesion, Usuario_idUsuario),
   FOREIGN KEY(Usuario_idUsuario)
     REFERENCES Usuario(idUsuario));
