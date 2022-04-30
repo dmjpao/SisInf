@@ -5,17 +5,39 @@
  */
 package Vista;
 
+import Controlador.Producto;
+import Modelo.Conexion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
  */
 public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InterfazRegistrarNuevoProducto
-     */
+    static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;
+    static String cadenaDriver ="org.postgresql.Driver";
+    static String consultaSQL="SELECT * FROM producto";
+    static Producto objProduct;
+    Conexion con = new Conexion();
     public InterfazRegistrarNuevoProducto() {
         initComponents();
+        try {
+            conexion=con.ConectarDB();
+            sentencia=conexion.createStatement();
+            resultado=sentencia.executeQuery(consultaSQL);
+        } catch (Exception e) {
+            
+        }
+        
     }
 
     /**
@@ -67,6 +89,11 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         });
 
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,6 +178,46 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
     private void JTextFieldIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldIdProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldIdProductoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Producto product;
+        boolean flag=true;
+        objProduct=new Producto();
+        objProduct.codigo=Integer.parseInt(JTextFieldIdProducto.getText());        
+        
+        try {
+            sentencia=conexion.createStatement();
+            resultado=sentencia.executeQuery(consultaSQL);
+            while(resultado.next()){
+                product=new Producto();
+                product.codigo=resultado.getInt("idproducto");
+                if (objProduct.codigo==product.codigo){
+                    flag=false;
+                    break;
+                }
+            }
+            
+            if(flag){
+                //objProduct.codigo=Integer.parseInt(idp.getText());
+                objProduct.descripcion=JTextFieldDescripcion.getText();
+                objProduct.marca=JTextFieldMarca.getText();
+                objProduct.modelo=JTextFieldModelo.getText();
+                objProduct.proveedor=JTextFieldProveedor.getText();
+                objProduct.precio=Integer.parseInt(jTextFieldPrecio.getText());
+                objProduct.cantidad=Integer.parseInt(jTextFieldCantidad.getText());
+
+                String sentenciaSQL = new String();
+                sentenciaSQL="INSERT INTO producto(idproducto, descripcion, marca, modelo, proveedor, precio, cantidad)";
+                sentenciaSQL= sentenciaSQL+"VALUES("+objProduct.codigo+",'"+objProduct.descripcion+"', '"+objProduct.marca+"', '"+objProduct.modelo+"', '"+objProduct.proveedor+"', "+objProduct.precio+", "+objProduct.cantidad+")";
+                sentencia.execute(sentenciaSQL);
+                JOptionPane.showMessageDialog(this, "Guardado con exito");            
+            }else{
+                JOptionPane.showMessageDialog(this, "codigo duplicado");
+            } 
+        } catch (SQLException e) {
+            Logger.getLogger(InterfazRegistrarNuevoProducto.class.getName()).log(Level.SEVERE,null,e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
