@@ -1,5 +1,63 @@
 Scripts Usados:
 
+CREATE TABLE Rol (
+  idRol SERIAL  NOT NULL ,
+  Nombre VARCHAR      ,
+PRIMARY KEY(idRol));
+
+CREATE TABLE Usuario (
+  idUsuario SERIAL  NOT NULL ,
+  Nombre VARCHAR    ,
+  Password_2 VARCHAR      ,
+PRIMARY KEY(idUsuario));
+
+CREATE TABLE IU (
+  idIU SERIAL  NOT NULL ,
+  Nombre VARCHAR      ,
+PRIMARY KEY(idIU));
+
+
+CREATE TABLE Sesion (
+  idSesion SERIAL  NOT NULL ,
+  Usuario_idUsuario INTEGER   NOT NULL ,
+  IP INET    ,
+  PID INTEGER      ,
+PRIMARY KEY(idSesion, Usuario_idUsuario),
+  FOREIGN KEY(Usuario_idUsuario)
+    REFERENCES Usuario(idUsuario));
+
+CREATE TABLE Usuario_has_Rol (
+  Usuario_idUsuario INTEGER   NOT NULL ,
+  Rol_idRol INTEGER   NOT NULL ,
+  Activo BOOL    ,
+  FechaEntrada DATE   ,
+  FechaSalida DATE    CHECK  (FechaSalida > FechaEntrada)     ,
+PRIMARY KEY(Usuario_idUsuario, Rol_idRol),
+  FOREIGN KEY(Usuario_idUsuario)
+    REFERENCES Usuario(idUsuario),
+  FOREIGN KEY(Rol_idRol)
+    REFERENCES Rol(idRol));
+
+CREATE TABLE Rol_has_IU (
+  Rol_idRol INTEGER   NOT NULL ,
+  IU_idIU INTEGER   NOT NULL ,
+  Activo BOOL    ,
+  FechaEntrada DATE      ,
+  FechaSalida DATE    CHECK  (FechaSalida > FechaEntrada)       ,
+PRIMARY KEY(Rol_idRol, IU_idIU),
+  FOREIGN KEY(Rol_idRol)
+    REFERENCES Rol(idRol),
+  FOREIGN KEY(IU_idIU)
+    REFERENCES IU(idIU));
+
+
+
+
+
+
+
+
+
 CREATE TABLE TipoProducto (
   idTipoProducto SERIAL  NOT NULL ,
   Tipo VARCHAR      ,
