@@ -10,11 +10,11 @@ package Controlador;
  * @author PC
  */
 public class Producto {
-    public int codigo;
-    public String descripcion;
-    public String marca;
-    public String modelo;
-    public String proveedor;
+   // public int codigo;
+    //public String descripcion;
+    //public String marca;
+    public String nombre;
+    public int tipoProducto;
     public int precio;
     public int cantidad;
     
