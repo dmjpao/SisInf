@@ -1,3 +1,71 @@
+--Ejecutalo en PGAdmin4
+create or replace function VerificarUsuario (
+	vusuario varchar,
+	vcontrasena varchar
+) 
+returns boolean
+as 
+$$
+DECLARE
+	res boolean = false;
+begin 
+	if exists(
+		select nombre 
+			from usuario
+				where nombre=vusuario and contrasena=vcontrasena
+	)
+then res := true;
+		   	Insert into sesion (usuario_idusuario, ip, pid)
+			values ((select idusuario 
+			from usuario
+				where nombre=vusuario) ,(select inet_client_addr()), (select pg_backend_pid()));
+		   
+		   
+end if;
+return res;
+end
+$$
+language 'plpgsql';
+
+
+create or replace function IU_USUARIO(
+	vusuario varchar
+)
+returns table (idiu integer)
+as
+$$
+
+	
+begin 
+return query
+    select DISTINCT funcion_has_iu.iu_idiu
+		from (select funcion_idfuncion
+	  			from (select rol_idrol
+	 	   				 from usuario_has_rol
+	       				 where usuario_idusuario in (select idusuario 
+			  											from Usuario
+			 											where nombre = vusuario)
+	       				 ) uno, rol_has_funcion
+	 				 where uno.rol_idrol=rol_has_funcion.rol_idrol) dos, funcion_has_iu
+			where dos.funcion_idfuncion=funcion_has_iu.funcion_idfuncion;
+
+end
+$$
+language 'plpgsql';
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//NetBeans
+
+
+
 void presentarIU(){
      Statement  at = null;
       DefaultTableModel modelo = new DefaultTableModel();
