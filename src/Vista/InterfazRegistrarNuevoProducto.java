@@ -28,6 +28,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
     static Producto objProduct;
     Conexion con = new Conexion();
     public InterfazRegistrarNuevoProducto() {
+        objProduct=new Producto();
         initComponents();
         try {
             conexion=con.ConectarDB();           
@@ -211,53 +212,68 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Producto product;
-        boolean flag=true;
-        objProduct=new Producto();
-        //objProduct.codigo=Integer.parseInt(JTextFieldIdProducto.getText());        
+      
+        
         
         try {
             sentencia=conexion.createStatement();
-            //resultado=sentencia.executeQuery(consultaSQL);
-            /*while(resultado.next()){
-                product=new Producto();
-                product.codigo=resultado.getInt("idproducto");
-                if (objProduct.codigo==product.codigo){
-                    flag=false;
-                    break;
-                }
-            }*/
-            
-            //if(flag){
-                //objProduct.codigo=Integer.parseInt(idp.getText());
+           
                 objProduct.nombre=JTextFieldNombre.getText();
-                objProduct.tipoProducto=Integer.parseInt(JTextFieldTipoProducto.getText());
-                objProduct.precio=Integer.parseInt(JTextFieldPrecio.getText());
+                objProduct.tipoProducto=JTextFieldTipoProducto.getText();
+                objProduct.precio=Float.parseFloat(JTextFieldPrecio.getText());
                 objProduct.cantidad=Integer.parseInt(JTextFieldCantidad.getText());
-                //objProduct.precio=Integer.parseInt(jTextFieldPrecio.getText());
-                //objProduct.cantidad=Integer.parseInt(jTextFieldCantidad.getText());
-
-                String sentenciaSQL = new String();
-                int lastIdProducto=0;
-                sentenciaSQL="INSERT INTO producto(nombre,tipoproducto_idtipoproducto)";
-                sentenciaSQL= sentenciaSQL+"VALUES('"+objProduct.nombre+"', "+objProduct.tipoProducto+")RETURNING idproducto";
+                
+                int recuperarIdPrecio=0;
+                resultado = sentencia.executeQuery("SELECT * FROM precio WHERE precio="+objProduct.precio);
+                if (resultado.next()){
+                    recuperarIdPrecio=resultado.getInt("idprecio");                    
+                }else{
+                    String sentenciaSQL1 = new String();
+                    sentenciaSQL1="INSERT INTO precio(precio)";
+                    sentenciaSQL1= sentenciaSQL1+"VALUES("+objProduct.precio+")";
+                    sentencia.execute(sentenciaSQL1);
+                    ResultSet rs1 = sentencia.executeQuery("select lastval()");
+                    if (rs1.next()) {
+                    recuperarIdPrecio= rs1.getInt(1);
+                    }
+                }
+                
+                int recuperarIdCantidad=0;
+                resultado = sentencia.executeQuery("SELECT * FROM cantidad WHERE cantidad="+objProduct.cantidad);
+                if (resultado.next()){
+                    recuperarIdCantidad=resultado.getInt("idcantidad");                    
+                }else{
+                    String sentenciaSQL2 = new String();
+                    sentenciaSQL2="INSERT INTO cantidad(cantidad)";
+                    sentenciaSQL2= sentenciaSQL2+"VALUES("+objProduct.cantidad+")";
+                    sentencia.execute(sentenciaSQL2);
+                    ResultSet rs2 = sentencia.executeQuery("select lastval()");
+                    if (rs2.next()) {
+                    recuperarIdCantidad= rs2.getInt(1);
+                    }
+                }
+                int recuperarIdTipoProducto=0;
+                resultado = sentencia.executeQuery("SELECT * FROM tipoproducto WHERE tipo='"+objProduct.tipoProducto+"'");
+                if (resultado.next()){
+                    recuperarIdTipoProducto=resultado.getInt("idtipoproducto");                    
+                }else{
+                    String sentenciaSQL3 = new String();
+                    sentenciaSQL3="INSERT INTO tipoproducto(tipo)";
+                    sentenciaSQL3= sentenciaSQL3+"VALUES('"+objProduct.tipoProducto+"')";
+                    sentencia.execute(sentenciaSQL3);
+                    ResultSet rs3 = sentencia.executeQuery("select lastval()");
+                    if (rs3.next()) {
+                    recuperarIdTipoProducto= rs3.getInt(1);
+                    }
+                }
+                
+                String sentenciaSQL = new String();                
+                sentenciaSQL="INSERT INTO producto(nombre,tipoproducto_idtipoproducto,cantidad_idcantidad,precio_idprecio)";
+                sentenciaSQL= sentenciaSQL+"VALUES('"+objProduct.nombre+"', "+recuperarIdTipoProducto+","+ recuperarIdCantidad+","+recuperarIdPrecio+")";
                 sentencia.execute(sentenciaSQL);
-                ResultSet rs = sentencia.executeQuery("select lastval()");
-                if (rs.next()) {
-                lastIdProducto= rs.getInt(1);
-                }                
-                String sentenciaSQL1 = new String();
-                sentenciaSQL1="INSERT INTO precio(idprecio,producto_idproducto)";
-                sentenciaSQL1= sentenciaSQL1+"VALUES("+objProduct.precio+", "+lastIdProducto+")";
-                sentencia.execute(sentenciaSQL1);
-                String sentenciaSQL2 = new String();
-                sentenciaSQL2="INSERT INTO cantidadpoducto(idcantidadpoducto,producto_idproducto)";
-                sentenciaSQL2= sentenciaSQL2+"VALUES("+objProduct.cantidad+", "+lastIdProducto+")";
-                sentencia.execute(sentenciaSQL2);
+                
                 JOptionPane.showMessageDialog(this, "Guardado con exito");            
-           /* }else{
-                JOptionPane.showMessageDialog(this, "codigo duplicado");
-            } */
+
         } catch (SQLException e) {
             Logger.getLogger(InterfazRegistrarNuevoProducto.class.getName()).log(Level.SEVERE,null,e);
         }

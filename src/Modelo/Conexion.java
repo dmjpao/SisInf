@@ -18,7 +18,7 @@ public class Conexion {
     
     
      public Connection ConectarDB(){ //metodo 
-    String db = "javadb";//SUPERALMACEN
+    String db = "SUPERALMACEN";//SUPERALMACEN
     String ip = "localhost";
     String puerto = "5432";
     Connection Conexion = null;
@@ -28,7 +28,7 @@ public class Conexion {
     
         try {
             Class.forName("org.postgresql.Driver");
-            Conexion = DriverManager.getConnection(cadena,"postgres","KillerWolf1989");     //Delgadillo lo cambias por tu contrasana
+            Conexion = DriverManager.getConnection(cadena,"postgres","Delgadillo");     //Delgadillo lo cambias por tu contrasana
           JOptionPane.showMessageDialog(null, "Se conecto");
         }catch (Exception e){
            JOptionPane.showMessageDialog(null, "Error al conectar"+e.toString());

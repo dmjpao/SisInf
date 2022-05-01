@@ -14,8 +14,8 @@ public class Producto {
     //public String descripcion;
     //public String marca;
     public String nombre;
-    public int tipoProducto;
-    public int precio;
+    public String tipoProducto;
+    public float precio;
     public int cantidad;
     
         public Producto (){
