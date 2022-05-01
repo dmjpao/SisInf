@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Vista;
 
+import Controlador.Producto;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import Modelo.Conexion;
 /**
  *
  * @author PC
@@ -14,10 +19,21 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
     /**
      * Creates new form InterfazRegistrarNuevoProducto
      */
+   static Connection conexion=null;
+    static Statement sentencia=null;
+    static ResultSet resultado=null;
+  //  static String cadenaDriver ="org.postgresql.Driver";    
+    static Producto objProduct;
+    Conexion con = new Conexion();
     public InterfazRegistrarNuevoProducto() {
         initComponents();
+        try {
+            conexion=con.ConectarDB();           
+        } catch (Exception e) {
+            
+        }
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,7 +108,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                             .addComponent(JTextFieldModelo)
                             .addComponent(JTextFieldProveedor)
                             .addComponent(jTextFieldPrecio)
-                            .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
+                            .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
@@ -129,7 +145,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(32, 32, 32))
         );

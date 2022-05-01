@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Conexion;
+package Modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *     Conexion conn = new Conexion(); 
@@ -18,9 +19,9 @@ public class Conexion {
     
     
      public Connection ConectarDB(){ //metodo 
-                 String db = "SUPERALMACEN";
+    String db = "TIENDA ALMACEN";
     String ip = "localhost";
-    String puerto = "5432";
+    String puerto = "5433";
     Connection Conexion = null;
 
 
@@ -28,7 +29,7 @@ public class Conexion {
     
         try {
             Class.forName("org.postgresql.Driver");
-            Conexion = DriverManager.getConnection(cadena,"postgres","Delgadillo");     //Delgadillo lo cambias por tu contrasana
+            Conexion = DriverManager.getConnection(cadena,"postgres","oliverpozoflores10");     //Delgadillo lo cambias por tu contrasana
           JOptionPane.showMessageDialog(null, "Se conecto");
           
           
