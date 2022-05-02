@@ -142,3 +142,78 @@ for(int j=0; j<cols; j++){
 
     
 }
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--TRUNCATE usuario,sexo,rol,usuario_has_rol RESTART IDENTITY CASCADE
+
+--select * from sexo
+insert into sexo (sexo)
+values ('Femenino');
+insert into sexo (sexo)
+values ('Masculino');
+
+
+--select * from usuario
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (1,'Pepe','12345','2002-12-02',2000.5);
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (1,'Marco','12345','2002-12-01',2650.5);
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (1,'Dorian','12345','2002-12-03',2506.5);
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (2,'Andrea','12345','2002-12-03',2506.5);
+
+
+--select * from rol
+insert into rol (nombre)
+values ('Encargado de Almacenes');
+insert into rol (nombre)
+values ('Recursos Humanos');
+insert into rol (nombre)
+values ('Administrador');
+insert into rol (nombre)
+values ('Cajero');
+
+--select * from usuario_has_rol
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(1,1,true,'2022/05/01','2023/05/01');
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(2,2,true,'2022/01/01','2023/01/01');
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(3,3,true,'2020/02/02','2025/02/02');
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(4,4,true,'2021/08/04','2024/04/19');
+
+
+
+
+create or replace function Get_Rol_Usuario(
+	vusuario varchar
+)
+returns integer
+as
+$$
+declare 
+	res integer;
+	
+begin 
+res= (select rol_idrol from usuario_has_rol 
+where usuario_has_rol.usuario_idusuario=(select idusuario from usuario where nombre=vusuario)
+);
+return res;
+end
+$$
+language 'plpgsql';
+
+
+/* Linea de como ejecutar */select Get_Rol_Usuario('Pepe');
