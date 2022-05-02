@@ -211,10 +211,19 @@ public class framePrincipal extends javax.swing.JFrame {
 
         setBounds(0, 0, 588, 383);
     }// </editor-fold>//GEN-END:initComponents
-    
+    //Rol 2 => Accede a Registrar Productos
     public void initRecursosHumanos(){
         panelPrincipal.removeAll();
-        panelPrincipal.add(secondPanel);
+        botonRegistrarEmpleado.setVisible(false);
+        panelPrincipal.add(secondPanel);        
+        panelPrincipal.repaint();
+        panelPrincipal.revalidate();
+    }
+    //Rol 3 => Accede a Registrar Empleados
+    public void initAdministrador(){
+        panelPrincipal.removeAll();
+        botonRegistrarProducto.setVisible(false);
+        panelPrincipal.add(firstPanel);
         panelPrincipal.repaint();
         panelPrincipal.revalidate();
     }

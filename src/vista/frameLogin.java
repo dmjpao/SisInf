@@ -147,8 +147,9 @@ public class frameLogin extends javax.swing.JFrame {
               framePrincipal ventana = new framePrincipal();
               ventana.lblNombre.setText(busqueda_nombre);
               if(userRol == 2){
-                  ventana.initRecursosHumanos();
-                  ventana.botonRegistrarEmpleado.setVisible(false);                   
+                  ventana.initRecursosHumanos();                   
+              } else if(userRol == 3){
+                  ventana.initAdministrador();
               }
               ventana.setVisible(true);
               this.dispose();
