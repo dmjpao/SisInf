@@ -1,13 +1,28 @@
 package sisinf;
+import modelo.*;
+import vista.*;
 
 public class main {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+     
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        System.out.println("Hello World de Ariel");
+        InterfazRegistrarNuevoProducto nuevoProducto = new InterfazRegistrarNuevoProducto();
+        //framePrincipal frame = new framePrincipal();
+        frameLogin frameLogin = new frameLogin();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            Conexion con = new Conexion(); 
+            
+            public void run() {
+                //con.ConectarDB();
+                //frame.setVisible(true);
+                frameLogin.setVisible(true);
+                //frame.setVisible(true);
+                //frame.setLocationRelativeTo(null);
+                //nuevoProducto.setVisible(true);
+                //nuevoProducto.setResizable(false);
+            }
+        });
     }
     
 }
