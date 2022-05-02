@@ -1,23 +1,21 @@
 --Scripts Necesarios [Base de Datos]:
 
-CREATE TABLE Rol (
-  idRol SERIAL  NOT NULL ,
-  Nombre VARCHAR      ,
-PRIMARY KEY(idRol));
-
-
-
 CREATE TABLE Proveedor (
-  idProveedor SERIAL  NOT NULL ,
-  Nombre VARCHAR      ,
+  idProveedor INTEGER   NOT NULL ,
+  Nombre VARCHAR    ,
+  Correo VARCHAR    ,
+  Telefono INTEGER    ,
+  Empresa VARCHAR      ,
 PRIMARY KEY(idProveedor));
 
 
 
-CREATE TABLE TipoProducto (
-  idTipoProducto SERIAL  NOT NULL ,
-  Tipo VARCHAR      ,
-PRIMARY KEY(idTipoProducto));
+CREATE TABLE Producto_Detalle (
+  idProducto_Detalle SERIAL  NOT NULL ,
+  Marca VARCHAR    ,
+  Precio INTEGER    ,
+  Especificaciones VARCHAR      ,
+PRIMARY KEY(idProducto_Detalle));
 
 
 
@@ -28,10 +26,10 @@ PRIMARY KEY(idSexo));
 
 
 
-CREATE TABLE Cantidad (
-  idCantidad SERIAL  NOT NULL ,
-  Cantidad INTEGER      ,
-PRIMARY KEY(idCantidad));
+CREATE TABLE Rol (
+  idRol SERIAL  NOT NULL ,
+  Nombre VARCHAR      ,
+PRIMARY KEY(idRol));
 
 
 
@@ -39,7 +37,7 @@ CREATE TABLE Cliente (
   idCliente SERIAL  NOT NULL ,
   Nombre VARCHAR    ,
   Telefono INTEGER    ,
-  FechaNacimiento DATE      ,
+  FechaNacimiento VARCHAR      ,
 PRIMARY KEY(idCliente));
 
 
@@ -48,13 +46,6 @@ CREATE TABLE Interfaz (
   idInterfaz SERIAL  NOT NULL ,
   Nombre VARCHAR      ,
 PRIMARY KEY(idInterfaz));
-
-
-
-CREATE TABLE Precio (
-  idPrecio SERIAL  NOT NULL ,
-  Precio FLOAT      ,
-PRIMARY KEY(idPrecio));
 
 
 
@@ -71,23 +62,23 @@ PRIMARY KEY(idUsuario),
 
 
 
-CREATE TABLE Sesion (
-  idSesion SERIAL  NOT NULL ,
-  Usuario_idUsuario INTEGER   NOT NULL ,
-  PID INTEGER    ,
-  IP INET      ,
-PRIMARY KEY(idSesion, Usuario_idUsuario),
-  FOREIGN KEY(Usuario_idUsuario)
-    REFERENCES Usuario(idUsuario));
+CREATE TABLE Producto (
+  idProducto SERIAL  NOT NULL ,
+  Producto_Detalle_idProducto_Detalle INTEGER   NOT NULL ,
+  Nombre VARCHAR    ,
+  Cantidad INTEGER      ,
+PRIMARY KEY(idProducto, Producto_Detalle_idProducto_Detalle),
+  FOREIGN KEY(Producto_Detalle_idProducto_Detalle)
+    REFERENCES Producto_Detalle(idProducto_Detalle));
 
 
 
 CREATE TABLE Usuario_has_Rol (
   Usuario_idUsuario INTEGER   NOT NULL ,
   Rol_idRol INTEGER   NOT NULL ,
-  Activo BOOL   NOT NULL ,
-  FechaInicio DATE    ,
-  FechaFinal DATE      ,
+  Activo VARCHAR   NOT NULL ,
+  FechaInicio VARCHAR    ,
+  FechaFinal VARCHAR      ,
 PRIMARY KEY(Usuario_idUsuario, Rol_idRol, Activo),
   FOREIGN KEY(Usuario_idUsuario)
     REFERENCES Usuario(idUsuario),
@@ -95,43 +86,57 @@ PRIMARY KEY(Usuario_idUsuario, Rol_idRol, Activo),
     REFERENCES Rol(idRol));
 
 
+
+CREATE TABLE Venta (
+  idVenta INTEGER   NOT NULL ,
+  Cliente_idCliente INTEGER   NOT NULL ,
+  Fecha VARCHAR   NOT NULL ,
+  Producto_idProducto INTEGER   NOT NULL ,
+  Producto_Detalle_idProducto_Detalle INTEGER   NOT NULL ,
+  Monto INTEGER   NOT NULL   ,
+PRIMARY KEY(idVenta, Cliente_idCliente, Fecha, Producto_idProducto, Producto_Detalle_idProducto_Detalle),
+  FOREIGN KEY(Cliente_idCliente)
+    REFERENCES Cliente(idCliente),
+  FOREIGN KEY(Producto_idProducto, Producto_Detalle_idProducto_Detalle)
+    REFERENCES Producto(idProducto, Producto_Detalle_idProducto_Detalle));
+
+
+
+CREATE TABLE Compra (
+  Proveedor_idProveedor INTEGER   NOT NULL ,
+  Fecha VARCHAR   NOT NULL ,
+  Producto_Detalle_idProducto_Detalle INTEGER   NOT NULL ,
+  Producto_idProducto INTEGER   NOT NULL ,
+  Cantidad INTEGER      ,
+PRIMARY KEY(Proveedor_idProveedor, Fecha, Producto_Detalle_idProducto_Detalle, Producto_idProducto),
+  FOREIGN KEY(Proveedor_idProveedor)
+    REFERENCES Proveedor(idProveedor),
+  FOREIGN KEY(Producto_idProducto, Producto_Detalle_idProducto_Detalle)
+    REFERENCES Producto(idProducto, Producto_Detalle_idProducto_Detalle));
+
+
 CREATE TABLE Rol_has_Interfaz (
   Rol_idRol INTEGER   NOT NULL ,
   Interfaz_idInterfaz INTEGER   NOT NULL ,
-  Activo BOOL    ,
-  FechaInicio DATE    ,
-  FechaFianl DATE      ,
+  Activo VARCHAR    ,
+  FechaInicio VARCHAR    ,
+  FechaFianl VARCHAR      ,
 PRIMARY KEY(Rol_idRol, Interfaz_idInterfaz),
   FOREIGN KEY(Rol_idRol)
     REFERENCES Rol(idRol),
   FOREIGN KEY(Interfaz_idInterfaz)
     REFERENCES Interfaz(idInterfaz));
+	
+
+CREATE TABLE Sesion (
+  idSesion SERIAL  NOT NULL ,
+  Usuario_idUsuario INTEGER   NOT NULL ,
+  PID INTEGER    ,
+  IP VARCHAR      ,
+PRIMARY KEY(idSesion, Usuario_idUsuario),
+  FOREIGN KEY(Usuario_idUsuario)
+    REFERENCES Usuario(idUsuario));
 
 
-CREATE TABLE Producto (
-  idProducto SERIAL  NOT NULL ,
-  Cantidad_idCantidad INTEGER   NOT NULL ,
-  Precio_idPrecio INTEGER   NOT NULL ,
-  TipoProducto_idTipoProducto INTEGER   NOT NULL ,
-  Nombre VARCHAR      ,
-PRIMARY KEY(idProducto),
-  FOREIGN KEY(TipoProducto_idTipoProducto)
-    REFERENCES TipoProducto(idTipoProducto),
-  FOREIGN KEY(Precio_idPrecio)
-    REFERENCES Precio(idPrecio),
-  FOREIGN KEY(Cantidad_idCantidad)
-    REFERENCES Cantidad(idCantidad));
-
-
-CREATE TABLE Venta (
-  Cliente_idCliente INTEGER   NOT NULL ,
-  Fecha DATE   NOT NULL ,
-  Producto_idProducto INTEGER   NOT NULL ,
-  Monto FLOAT   NOT NULL   ,
-PRIMARY KEY(Cliente_idCliente, Fecha, Producto_idProducto),
-  FOREIGN KEY(Cliente_idCliente)
-    REFERENCES Cliente(idCliente),
-  FOREIGN KEY(Producto_idProducto)
-    REFERENCES Producto(idProducto));
 
 
