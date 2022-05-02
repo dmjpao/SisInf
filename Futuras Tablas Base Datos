@@ -1,6 +1,6 @@
 --Scripts Necesarios [Base de Datos]:
 CREATE TABLE Proveedor (
-  idProveedor INTEGER   NOT NULL ,
+  idProveedor SERIAL  NOT NULL ,
   Nombre VARCHAR    ,
   Correo VARCHAR    ,
   Telefono INTEGER    ,
