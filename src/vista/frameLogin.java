@@ -132,7 +132,7 @@ public class frameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_userFieldActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-          Boolean login = false;
+          int userRol;
           String busqueda_usuario = metodos.buscarUsuarioRegistrado(userField.getText(), new String(passwordField.getPassword()));
           if(userField.getText().equals("root") && new String(passwordField.getPassword()).equals("root")){
               JOptionPane.showMessageDialog(this, "Bienvenido iniciaste sesion como Administrador :) ");
@@ -142,9 +142,13 @@ public class frameLogin extends javax.swing.JFrame {
               this.dispose();
           } else if(busqueda_usuario.equals("Usuario encontrado")){
               String busqueda_nombre = metodos.buscarNombre(userField.getText());
-              JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+"y tu rol es : "+metodos.getRolUsuario(busqueda_nombre));
+              userRol = metodos.getRolUsuario(busqueda_nombre);
+              JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+"y tu rol es : "+userRol);
               framePrincipal ventana = new framePrincipal();
               ventana.lblNombre.setText(busqueda_nombre);
+              if(userRol == 2){
+                  ventana.botonRegistrarEmpleado.setVisible(false);
+              }
               ventana.setVisible(true);
               this.dispose();
           } else {
