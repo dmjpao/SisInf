@@ -142,7 +142,7 @@ public class frameLogin extends javax.swing.JFrame {
               this.dispose();
           } else if(busqueda_usuario.equals("Usuario encontrado")){
               String busqueda_nombre = metodos.buscarNombre(userField.getText());
-              JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre);
+              JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+"y tu rol es : "+metodos.getRolUsuario(busqueda_nombre));
               framePrincipal ventana = new framePrincipal();
               ventana.lblNombre.setText(busqueda_nombre);
               ventana.setVisible(true);
@@ -152,25 +152,6 @@ public class frameLogin extends javax.swing.JFrame {
               userField.setText("");
               passwordField.setText("");
           }
-//        String nombre = userField.getText();
-//        String password = new String(passwordField.getPassword());
-//        String SQL = "SELECT (nombre,contrasena) FROM usuario where usuario='"+nombre+"'";
-//        Conexion con = new Conexion();
-//        try {
-//            Statement sentencia = con.ConectarDB().createStatement();
-//            ResultSet        rs = sentencia.executeQuery(SQL);
-//            String auxNombre = rs.getString("nombre");
-//            String auxPass   = rs.getString("contrasena");
-//            System.out.println(auxNombre+" "+auxPass);
-//            if (rs.getString("nombre").equals(nombre) && rs.getString("contrasena").equals(password)) {
-//                
-//                JOptionPane.showMessageDialog(null, "Login exitoso!");
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Nombre o contrasena incorrectos!");
-//            }
-//        } catch (Exception e) {
-//
-//        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void loginSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginSalirActionPerformed
