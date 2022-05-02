@@ -211,7 +211,14 @@ public class framePrincipal extends javax.swing.JFrame {
 
         setBounds(0, 0, 588, 383);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void initRecursosHumanos(){
+        panelPrincipal.removeAll();
+        panelPrincipal.add(secondPanel);
+        panelPrincipal.repaint();
+        panelPrincipal.revalidate();
+    }
+    
     private void botonRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarProductoActionPerformed
         panelPrincipal.removeAll();
         panelPrincipal.add(secondPanel);
@@ -303,7 +310,7 @@ public class framePrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel labelPassword;
     public javax.swing.JLabel lblNombre;
     private javax.swing.JPanel panelPrincipal;
-    private javax.swing.JPanel secondPanel;
+    public javax.swing.JPanel secondPanel;
     private javax.swing.JTextField textRENombre;
     private javax.swing.JPasswordField textREPassword;
     // End of variables declaration//GEN-END:variables
