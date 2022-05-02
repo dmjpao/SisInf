@@ -89,7 +89,7 @@ PRIMARY KEY(Usuario_idUsuario, Rol_idRol, Activo),
 
 
 CREATE TABLE Venta (
-  idVenta INTEGER   NOT NULL ,
+  idVenta SERIAL  NOT NULL ,
   Cliente_idCliente INTEGER   NOT NULL ,
   Fecha VARCHAR   NOT NULL ,
   Producto_idProducto INTEGER   NOT NULL ,
