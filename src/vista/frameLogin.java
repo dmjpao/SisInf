@@ -146,10 +146,12 @@ public class frameLogin extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+"y tu rol es : "+userRol);
               framePrincipal ventana = new framePrincipal();
               ventana.lblNombre.setText(busqueda_nombre);
-              if(userRol == 2){
+              if(userRol == 2){//Recursos Humanos
                   ventana.initRecursosHumanos();                   
-              } else if(userRol == 3){
+              } else if(userRol == 3){ //Administrador
                   ventana.initAdministrador();
+              } else if(userRol == 1){ //Encargado de Almacenes
+                  ventana.initAlmacenes();
               }
               ventana.setVisible(true);
               this.dispose();

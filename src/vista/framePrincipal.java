@@ -211,7 +211,16 @@ public class framePrincipal extends javax.swing.JFrame {
 
         setBounds(0, 0, 588, 383);
     }// </editor-fold>//GEN-END:initComponents
-    //Rol 2 => Accede a Registrar Productos
+    
+    //Rol 1 Encargado Almacenes => Accede a Registrar Productos
+    public void initAlmacenes(){
+        panelPrincipal.removeAll();
+        botonRegistrarEmpleado.setVisible(false);
+        panelPrincipal.add(secondPanel);        
+        panelPrincipal.repaint();
+        panelPrincipal.revalidate();
+    }
+    //Rol 2 Recursos Humanos => Accede a Registrar Productos
     public void initRecursosHumanos(){
         panelPrincipal.removeAll();
         botonRegistrarEmpleado.setVisible(false);
@@ -219,7 +228,7 @@ public class framePrincipal extends javax.swing.JFrame {
         panelPrincipal.repaint();
         panelPrincipal.revalidate();
     }
-    //Rol 3 => Accede a Registrar Empleados
+    //Rol 3 Administrador => Accede a Registrar Empleados
     public void initAdministrador(){
         panelPrincipal.removeAll();
         botonRegistrarProducto.setVisible(false);
@@ -227,6 +236,16 @@ public class framePrincipal extends javax.swing.JFrame {
         panelPrincipal.repaint();
         panelPrincipal.revalidate();
     }
+    
+    //Rol 4 Cajero => Accede a Registrar productos / Ventas
+    public void initCajero(){
+    panelPrincipal.removeAll();
+        botonRegistrarProducto.setVisible(false);
+        panelPrincipal.add(firstPanel);
+        panelPrincipal.repaint();
+        panelPrincipal.revalidate();
+    }
+    
     
     private void botonRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarProductoActionPerformed
         panelPrincipal.removeAll();
