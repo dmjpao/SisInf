@@ -149,6 +149,8 @@ public class frameLogin extends javax.swing.JFrame {
               this.dispose();
           } else {
               JOptionPane.showMessageDialog(this, "Usuario no registrado");
+              userField.setText("");
+              passwordField.setText("");
           }
 //        String nombre = userField.getText();
 //        String password = new String(passwordField.getPassword());
