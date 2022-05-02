@@ -1,0 +1,214 @@
+/* Solo debes copiar TODO y ejecutarlo de tu PgAdmin4 de Postgres */
+--Reiniciar todas las tablas.
+TRUNCATE cliente,compra,interfaz,producto,producto_detalle,proveedor,rol,
+rol_has_interfaz,sesion,sexo,usuario,usuario_has_rol,venta RESTART IDENTITY CASCADE;
+
+
+--select * from sexo
+insert into sexo (sexo)
+values ('Femenino');
+insert into sexo (sexo)
+values ('Masculino');
+
+
+--select * from usuario
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (1,'Pepe','12345','2002-12-02',2000.5);
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (1,'Marco','12345','2002-12-01',2650.5);
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (1,'Dorian','12345','2002-12-03',2506.5);
+insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
+values (2,'Andrea','12345','2002-12-03',2506.5);
+
+
+--select * from rol
+insert into rol (nombre)
+values ('Encargado de Almacenes');
+insert into rol (nombre)
+values ('Recursos Humanos');
+insert into rol (nombre)
+values ('Administrador');
+insert into rol (nombre)
+values ('Cajero');
+
+--select * from usuario_has_rol
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(1,1,true,'2022/05/01','2023/05/01');
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(2,2,true,'2022/01/01','2023/01/01');
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(3,3,true,'2020/02/02','2025/02/02');
+insert into usuario_has_rol (usuario_idusuario,rol_idrol,activo,fechainicio,fechafinal)
+values(4,4,true,'2021/08/04','2024/04/19');
+
+
+--select * from interfaz
+insert into interfaz (nombre)
+values ('Registrar Usuario');
+insert into interfaz (nombre)
+values ('Registar Ventas');
+insert into interfaz (nombre)
+values ('Login');
+insert into interfaz (nombre)
+values ('Registar Nuevo Producto');
+insert into interfaz (nombre)
+values ('Registar Proveedor');
+
+
+--select * from rol_has_interfaz
+insert into rol_has_interfaz
+values (1,3,true,'2020/04/05');
+insert into rol_has_interfaz
+values (1,4,true,'2020/05/06');
+insert into rol_has_interfaz
+values (2,1,true,'2020/04/08');
+insert into rol_has_interfaz
+values (2,3,true,'2021/01/05');
+insert into rol_has_interfaz
+values (2,5,true,'2021/01/01');
+insert into rol_has_interfaz
+values (3,1,true,'2002/01/01');
+insert into rol_has_interfaz
+values (3,2,true,'2002/01/01');
+insert into rol_has_interfaz
+values (3,3,true,'2002/01/01');
+insert into rol_has_interfaz
+values (3,4,true,'2002/01/01');
+insert into rol_has_interfaz
+values (3,5,true,'2002/01/01');
+insert into rol_has_interfaz
+values (4,1,true,'2002/01/01');
+insert into rol_has_interfaz
+values (4,2,true,'2002/01/01');
+insert into rol_has_interfaz
+values (4,3,true,'2002/01/01');
+
+
+--select * from proveedor
+insert into proveedor (nombre, correo, telefono, empresa)
+values('Juliana','July1990@hotmail.com',75687250,'Pil');
+insert into proveedor (nombre, correo, telefono, empresa)
+values('Marcelo','MarceloRioja_99@imba.com',77427200,'Imba');
+insert into proveedor (nombre, correo, telefono, empresa)
+values('Juan','JHDEP@delizia.of.com',72540239,'Delizia');
+insert into proveedor (nombre, correo, telefono, empresa)
+values('Estephany','Teffy11@gmail.com',65320145,'Bimbo');
+
+--select * from cliente
+insert into cliente (nombre,telefono,fechanacimiento)
+values('Ana',74125204,'2019/01/05');
+insert into cliente (nombre,telefono,fechanacimiento)
+values('Maria',69547820,'2021/09/12');
+insert into cliente (nombre,telefono,fechanacimiento)
+values('Polo',74954750,'2020/04/19');
+insert into cliente (nombre,telefono,fechanacimiento)
+values('Pedro',69584210,'2021/12/20');
+insert into cliente (nombre,telefono,fechanacimiento)
+values('Samuel',738257804,'2021/03/14');
+
+
+--select * from producto_detalle
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Pil',11.5,'Leche Entera de 1L');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Pil',15.5,'Leche Deslactosada de 1L');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Pil',15.7,'Leche Chocolatada de 1L');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Sofia',22.3,'Carne de Res por kilo');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Imba',25.3,'Carne de pollo por kilo');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Kraker',19.5,'Galletas de agua con chocolate de 500g');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Salvado',25.5,'Galletas integrales de 1000g');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Acoloca',150,'Papa redonda, precio por kilo');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Delizia',16,'Yogurt sabor frutilla de 1 litro');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Pil',15,'Yogurt sabor durazno de 1 litro');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('ELCEIBO',5,'Granjeas de arroz con chocolate de 250g');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Chocapic',5,'Cereales con chocolate de 500g');
+insert into producto_detalle (marca,precio,especificaciones)
+values ('Cerelac',5,'Cereales para bebe de 1000g');
+
+
+--select * from producto
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(1,'Leche Pil E',200);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(2,'Leche Pil D',250);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(3,'Leche Pil C',210);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(4,'Carne Sofia',800);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(5,'Carne Imba',800);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(6,'Galletas Kraker',2000);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(7,'Galletas Salvado',5000);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(8,'Papas Acoloca',5000);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(9,'Yogurt Delizia',600);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(10,'Yogurt Pil',201);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(11,'Chocolates ELCEIBO',10000);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(12,'Chocolates Chocapic',10000);
+insert into producto (producto_detalle_idproducto_detalle,nombre,cantidad)
+values(13,'Cereales Cerelac',450);
+
+
+
+
+--select * from venta
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(1,'2020/05/01',1,1,11.5);
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(1,'2020/05/02',2,2,15.5);
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(1,'2020/05/03',3,3,15.7);
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(2,'2020/05/03',4,4,22.3);
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(3,'2020/05/04',5,5,25.3);
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(4,'2020/05/04',6,6,19.5);
+insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
+values(5,'2020/05/09',10,10,15);
+
+
+--select * from compra
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (1,'2020/01/01',1,1,200);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (1,'2020/01/01',2,2,250);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (2,'2020/01/01',3,3,210);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (2,'2020/01/01',4,4,800);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (3,'2020/01/01',5,5,800);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (3,'2020/01/01',6,6,2000);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',7,7,5000);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',8,8,5000);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',9,9,600);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',10,10,201);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',11,11,10000);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',12,12,10000);
+insert into compra (proveedor_idproveedor,fecha,producto_idproducto,producto_detalle_idproducto_detalle,cantidadcomprada)
+values (4,'2020/01/01',13,13,450);
