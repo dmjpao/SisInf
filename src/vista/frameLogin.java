@@ -143,7 +143,7 @@ public class frameLogin extends javax.swing.JFrame {
           } else if(busqueda_usuario.equals("Usuario encontrado")){
               String busqueda_nombre = metodos.buscarNombre(userField.getText());
               userRol = metodos.getRolUsuario(busqueda_nombre);
-              JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+"y tu rol es : "+userRol);
+              JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+" y tu rol es : "+userRol);
               framePrincipal ventana = new framePrincipal();
               ventana.lblNombre.setText(busqueda_nombre);
               if(userRol == 2){//Recursos Humanos
