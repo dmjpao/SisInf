@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista;
 
 import Controlador.Producto;
@@ -15,16 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PC
- */
+
 public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
 
     static Connection conexion=null;
     static Statement sentencia=null;
     static ResultSet resultado=null;
-  //  static String cadenaDriver ="org.postgresql.Driver";    
+     
     static Producto objProduct;
     Conexion con = new Conexion();
     public InterfazRegistrarNuevoProducto() {
@@ -57,10 +50,12 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         JTextFieldNombre = new javax.swing.JTextField();
-        JTextFieldTipoProducto = new javax.swing.JTextField();
+        JTextFieldMarca = new javax.swing.JTextField();
         JTextFieldPrecio = new javax.swing.JTextField();
         JTextFieldCantidad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jTextFieldEspecificaciones = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jPanelEliminar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,7 +107,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jLabel3.setText("tipo de producto");
+        jLabel3.setText("marca");
 
         jLabel4.setText("precio");
 
@@ -125,12 +120,17 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("especificaciones");
+
         javax.swing.GroupLayout jPanelRegistrarNuevoLayout = new javax.swing.GroupLayout(jPanelRegistrarNuevo);
         jPanelRegistrarNuevo.setLayout(jPanelRegistrarNuevoLayout);
         jPanelRegistrarNuevoLayout.setHorizontalGroup(
             jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelRegistrarNuevoLayout.createSequentialGroup()
                         .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
@@ -139,16 +139,18 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRegistrarNuevoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(113, 113, 113)
                         .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                            .addComponent(JTextFieldTipoProducto)
+                            .addComponent(JTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(JTextFieldMarca)
                             .addComponent(JTextFieldPrecio)
-                            .addComponent(JTextFieldCantidad)))
-                    .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                            .addComponent(JTextFieldCantidad)
+                            .addComponent(jTextFieldEspecificaciones))))
                 .addGap(55, 55, 55))
         );
         jPanelRegistrarNuevoLayout.setVerticalGroup(
@@ -161,7 +163,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(JTextFieldTipoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -170,7 +172,11 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(JTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(229, 229, 229)
+                .addGap(35, 35, 35)
+                .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldEspecificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(174, 174, 174)
                 .addComponent(jButton1)
                 .addGap(32, 32, 32))
         );
@@ -213,66 +219,35 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
-        
-        
         try {
             sentencia=conexion.createStatement();
            
                 objProduct.nombre=JTextFieldNombre.getText();
-                objProduct.tipoProducto=JTextFieldTipoProducto.getText();
+                objProduct.marca=JTextFieldMarca.getText();
                 objProduct.precio=Float.parseFloat(JTextFieldPrecio.getText());
                 objProduct.cantidad=Integer.parseInt(JTextFieldCantidad.getText());
+                objProduct.especificaciones=jTextFieldEspecificaciones.getText();
                 
-                int recuperarIdPrecio=0;
-                resultado = sentencia.executeQuery("SELECT * FROM precio WHERE precio="+objProduct.precio);
-                if (resultado.next()){
-                    recuperarIdPrecio=resultado.getInt("idprecio");                    
-                }else{
+                    int recuperarIdDetalleProducto=0;
                     String sentenciaSQL1 = new String();
-                    sentenciaSQL1="INSERT INTO precio(precio)";
-                    sentenciaSQL1= sentenciaSQL1+"VALUES("+objProduct.precio+")";
+                    sentenciaSQL1="INSERT INTO producto_detalle(marca,precio,especificaciones)";
+                    sentenciaSQL1= sentenciaSQL1+"VALUES('"+objProduct.marca+"',"+objProduct.precio+",'"+objProduct.especificaciones+"')";
                     sentencia.execute(sentenciaSQL1);
                     ResultSet rs1 = sentencia.executeQuery("select lastval()");
                     if (rs1.next()) {
-                    recuperarIdPrecio= rs1.getInt(1);
+                    recuperarIdDetalleProducto= rs1.getInt(1);
                     }
-                }
-                
-                int recuperarIdCantidad=0;
-                resultado = sentencia.executeQuery("SELECT * FROM cantidad WHERE cantidad="+objProduct.cantidad);
-                if (resultado.next()){
-                    recuperarIdCantidad=resultado.getInt("idcantidad");                    
-                }else{
-                    String sentenciaSQL2 = new String();
-                    sentenciaSQL2="INSERT INTO cantidad(cantidad)";
-                    sentenciaSQL2= sentenciaSQL2+"VALUES("+objProduct.cantidad+")";
-                    sentencia.execute(sentenciaSQL2);
-                    ResultSet rs2 = sentencia.executeQuery("select lastval()");
-                    if (rs2.next()) {
-                    recuperarIdCantidad= rs2.getInt(1);
-                    }
-                }
-                int recuperarIdTipoProducto=0;
-                resultado = sentencia.executeQuery("SELECT * FROM tipoproducto WHERE tipo='"+objProduct.tipoProducto+"'");
-                if (resultado.next()){
-                    recuperarIdTipoProducto=resultado.getInt("idtipoproducto");                    
-                }else{
-                    String sentenciaSQL3 = new String();
-                    sentenciaSQL3="INSERT INTO tipoproducto(tipo)";
-                    sentenciaSQL3= sentenciaSQL3+"VALUES('"+objProduct.tipoProducto+"')";
-                    sentencia.execute(sentenciaSQL3);
-                    ResultSet rs3 = sentencia.executeQuery("select lastval()");
-                    if (rs3.next()) {
-                    recuperarIdTipoProducto= rs3.getInt(1);
-                    }
-                }
                 
                 String sentenciaSQL = new String();                
-                sentenciaSQL="INSERT INTO producto(nombre,tipoproducto_idtipoproducto,cantidad_idcantidad,precio_idprecio)";
-                sentenciaSQL= sentenciaSQL+"VALUES('"+objProduct.nombre+"', "+recuperarIdTipoProducto+","+ recuperarIdCantidad+","+recuperarIdPrecio+")";
+                sentenciaSQL="INSERT INTO producto(producto_detalle_idproducto_detalle,nombre,cantidad)";
+                sentenciaSQL= sentenciaSQL+"VALUES("+recuperarIdDetalleProducto+",'"+objProduct.nombre+"',"+objProduct.cantidad+")";
                 sentencia.execute(sentenciaSQL);
                 
-                JOptionPane.showMessageDialog(this, "Guardado con exito");            
+                JOptionPane.showMessageDialog(this, "Guardado con exito"); 
+                JTextFieldNombre.setText("");
+                JTextFieldMarca.setText("");
+                JTextFieldPrecio.setText("");
+                JTextFieldCantidad.setText("");                
 
         } catch (SQLException e) {
             Logger.getLogger(InterfazRegistrarNuevoProducto.class.getName()).log(Level.SEVERE,null,e);
@@ -330,12 +305,13 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextFieldCantidad;
+    private javax.swing.JTextField JTextFieldMarca;
     private javax.swing.JTextField JTextFieldNombre;
     private javax.swing.JTextField JTextFieldPrecio;
-    private javax.swing.JTextField JTextFieldTipoProducto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -343,6 +319,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelEliminar;
     private javax.swing.JPanel jPanelRegistrarNuevo;
+    private javax.swing.JTextField jTextFieldEspecificaciones;
     private javax.swing.JPanel padre;
     // End of variables declaration//GEN-END:variables
 }
