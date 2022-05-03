@@ -170,19 +170,19 @@ values(13,'Cereales Cerelac',450);
 
 --select * from venta
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(1,'2020/05/01',1,1,11.5);
+values(6235820,'2020/05/01',1,1,11.5);
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(1,'2020/05/02',2,2,15.5);
+values(6235820,'2020/05/02',2,2,15.5);
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(1,'2020/05/03',3,3,15.7);
+values(6235820,'2020/05/03',3,3,15.7);
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(2,'2020/05/03',4,4,22.3);
+values(6735469,'2020/05/03',4,4,22.3);
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(3,'2020/05/04',5,5,25.3);
+values(7455568,'2020/05/04',5,5,25.3);
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(4,'2020/05/04',6,6,19.5);
+values(4565795,'2020/05/04',6,6,19.5);
 insert into venta (cliente_idcliente,fecha,producto_idproducto,producto_detalle_idproducto_detalle,monto)
-values(5,'2020/05/09',10,10,15);
+values(8455520,'2020/05/09',10,10,15);
 
 
 --select * from compra
