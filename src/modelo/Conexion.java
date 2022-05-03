@@ -27,7 +27,7 @@ public class Conexion {
 
     public static String url = "jdbc:postgresql://localhost:5432/SUPERALMACEN";
     public static String usuario = "postgres";
-    public static String contrasenia = "jhen123";
+    public static String contrasenia = "4321952";
     public static String driver = "org.postgresql.Driver";
    public static Connection conectar(){
         Connection conexion =null;

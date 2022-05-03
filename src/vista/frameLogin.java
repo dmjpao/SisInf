@@ -20,7 +20,7 @@ public class frameLogin extends javax.swing.JFrame {
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }
         Metodos_sql metodos = new Metodos_sql();
-        
+        DisenioRegistro ventanaRegistro = new DisenioRegistro();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -154,9 +154,10 @@ public class frameLogin extends javax.swing.JFrame {
               } else if(userRol == 1){ //Encargado de Almacenes
                   ventana.initAlmacenes();
               } else if(userRol == 4){ //Cajero
-                  
+                  ventanaRegistro.setLocationRelativeTo(null);
+                  ventanaRegistro.setVisible(true);
               }
-              ventana.setVisible(true);
+              //ventana.setVisible(true);
               this.dispose();
           } else {
               JOptionPane.showMessageDialog(this, "Usuario no registrado");
