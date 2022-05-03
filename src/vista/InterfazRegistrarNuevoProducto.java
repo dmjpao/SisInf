@@ -1,8 +1,8 @@
 
-package Vista;
+package vista;
 
-import Controlador.Producto;
-import Modelo.Conexion;
+import controlador.Producto;
+import modelo.Conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

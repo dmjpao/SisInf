@@ -10,8 +10,10 @@ public class Producto {
     public String marca;
     public String modelo;
     public String proveedor;
-    public int precio;
+    public float precio;
     public int cantidad;
+    public String nombre;
+    public String especificaciones;
     
         public Producto (){
         

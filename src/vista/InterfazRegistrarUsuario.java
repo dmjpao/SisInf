@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package vista;
 
-import Controlador.Producto;
-import Controlador.Usuario;
-import Modelo.Conexion;
-import Modelo.ListarUsuarios;
+import controlador.Producto;
+import controlador.Usuario;
+import modelo.Conexion;
+import modelo.ListarUsuarios;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
