@@ -25,4 +25,19 @@ public class Conexion {
         return Conexion;
     }
 
+    public static String url = "jdbc:postgresql://localhost:5432/SUPERALMACEN";
+    public static String usuario = "postgres";
+    public static String contrasenia = "jhen123";
+    public static String driver = "org.postgresql.Driver";
+   public static Connection conectar(){
+        Connection conexion =null;
+        try {
+            Class.forName(driver);
+            conexion = DriverManager.getConnection(url,usuario,contrasenia);
+            System.out.println("Conexion establecida");
+        }catch (ClassNotFoundException |SQLException e){
+            System.out.println("Error: "+e);
+        }
+        return conexion;
+    }
 }
