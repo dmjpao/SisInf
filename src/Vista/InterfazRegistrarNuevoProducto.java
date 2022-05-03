@@ -44,6 +44,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         padre = new javax.swing.JPanel();
+        jPanelEliminar = new javax.swing.JPanel();
         jPanelRegistrarNuevo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -56,13 +57,13 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTextFieldEspecificaciones = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jPanelEliminar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(255, 0, 0));
         jPanel3.setForeground(new java.awt.Color(51, 51, 51));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton2.setText("registrar nuevo producto");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton3.setText("eliminar producto");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,36 +85,51 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(22, 22, 22)))
+                .addComponent(jButton3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(30, 30, 30))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(189, 189, 189)
+                .addGap(186, 186, 186)
                 .addComponent(jButton2)
-                .addGap(76, 76, 76)
+                .addGap(79, 79, 79)
                 .addComponent(jButton3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         padre.setLayout(new java.awt.CardLayout());
 
-        jPanelRegistrarNuevo.setBackground(new java.awt.Color(204, 255, 255));
+        javax.swing.GroupLayout jPanelEliminarLayout = new javax.swing.GroupLayout(jPanelEliminar);
+        jPanelEliminar.setLayout(jPanelEliminarLayout);
+        jPanelEliminarLayout.setHorizontalGroup(
+            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 521, Short.MAX_VALUE)
+        );
+        jPanelEliminarLayout.setVerticalGroup(
+            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+        );
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
+        padre.add(jPanelEliminar, "card3");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Nombre");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("marca");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("precio");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("cantidad");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +137,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel1.setText("especificaciones");
 
         javax.swing.GroupLayout jPanelRegistrarNuevoLayout = new javax.swing.GroupLayout(jPanelRegistrarNuevo);
@@ -129,7 +147,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(377, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelRegistrarNuevoLayout.createSequentialGroup()
                         .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +164,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(113, 113, 113)
                         .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(JTextFieldNombre)
                             .addComponent(JTextFieldMarca)
                             .addComponent(JTextFieldPrecio)
                             .addComponent(JTextFieldCantidad)
@@ -156,7 +174,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jPanelRegistrarNuevoLayout.setVerticalGroup(
             jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
+                .addContainerGap(93, Short.MAX_VALUE)
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(JTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,32 +194,19 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEspecificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(174, 174, 174)
+                .addGap(55, 55, 55)
                 .addComponent(jButton1)
-                .addGap(32, 32, 32))
+                .addGap(151, 151, 151))
         );
 
         padre.add(jPanelRegistrarNuevo, "card2");
-
-        javax.swing.GroupLayout jPanelEliminarLayout = new javax.swing.GroupLayout(jPanelEliminar);
-        jPanelEliminar.setLayout(jPanelEliminarLayout);
-        jPanelEliminarLayout.setHorizontalGroup(
-            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
-        );
-        jPanelEliminarLayout.setVerticalGroup(
-            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
-        );
-
-        padre.add(jPanelEliminar, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(padre, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -209,8 +214,8 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(padre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(padre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
