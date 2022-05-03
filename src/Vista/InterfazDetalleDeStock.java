@@ -125,21 +125,21 @@ public class InterfazDetalleDeStock extends javax.swing.JFrame {
                 Producto productoLista=new Producto();
                 idDetalleProducto=resultado.getInt("producto_detalle_idproducto_detalle");
                 entero.add(idDetalleProducto);
-                productoLista.nombre=resultado.getString("nombre");
-                System.out.println("nombre"+productoLista.nombre);
+                productoLista.nombre=resultado.getString("nombre");                
                 productoLista.cantidad=resultado.getInt("cantidad"); 
                 lista.add(productoLista);
             }
             int i=0;
             for(Producto elem:lista){
                 ResultSet resultado2 = sentencia.executeQuery("SELECT * FROM producto_detalle WHERE idproducto_detalle="+entero.get(i)+"");
+                i++;
                 resultado2.next();
                 elem.marca=resultado2.getString("marca");
                 elem.precio=resultado2.getFloat("precio");
                 elem.especificaciones=resultado2.getString("especificaciones");
             }
             
-            System.out.println("precio+++++++++");
+           
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("nombre");
             model.addColumn("cantidad");
