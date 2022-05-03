@@ -20,6 +20,7 @@ public class frameLogin extends javax.swing.JFrame {
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }
         Metodos_sql metodos = new Metodos_sql();
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,12 +147,14 @@ public class frameLogin extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(this, "Bienvenido "+ busqueda_nombre+" y tu rol es : "+userRol);
               framePrincipal ventana = new framePrincipal();
               ventana.lblNombre.setText(busqueda_nombre);
-              if(userRol == 2){//Recursos Humanos
+              if(userRol == 2){        //Recursos Humanos
                   ventana.initRecursosHumanos();                   
               } else if(userRol == 3){ //Administrador
                   ventana.initAdministrador();
               } else if(userRol == 1){ //Encargado de Almacenes
                   ventana.initAlmacenes();
+              } else if(userRol == 4){ //Cajero
+                  
               }
               ventana.setVisible(true);
               this.dispose();
