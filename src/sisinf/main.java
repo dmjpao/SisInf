@@ -1,5 +1,6 @@
 package sisinf;
 import Modelo.Conexion;
+import Vista.InterfazPlanillaSueldo;
 import Vista.InterfazRegistrarUsuario;
 import Vista.InterfazRegistrarNuevoProducto;
 import java.sql.*;
@@ -12,9 +13,14 @@ public class main {
         /*InterfazRegistrarNuevoProducto ventana=new InterfazRegistrarNuevoProducto();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);*/
+        
+        
         InterfazRegistrarUsuario registro = new InterfazRegistrarUsuario();
         registro.setVisible(true);
         registro.setLocationRelativeTo(null);
+        /*InterfazPlanillaSueldo planilla = new InterfazPlanillaSueldo();
+        planilla.setVisible(true);
+        planilla.setLocationRelativeTo(null);*/
     }
     
 }

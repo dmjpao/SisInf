@@ -13,9 +13,10 @@ public class Usuario {
     public String nombre;
     public String contrasena;
     public String fecNac;
-    public int salario;
+    public float salario;
     public String sexo;
     public String fecIni;
+    public String fecFin;
     public String rol;
     
     public Usuario(){

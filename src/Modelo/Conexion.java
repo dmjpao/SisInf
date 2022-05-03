@@ -19,7 +19,7 @@ public class Conexion {
     
     
      public Connection ConectarDB(){ //metodo 
-    String db = "TIENDA ALMACEN";
+    String db = "SUPERALMACEN";
     String ip = "localhost";
     String puerto = "5433";
     Connection Conexion = null;
@@ -30,8 +30,8 @@ public class Conexion {
         try {
             Class.forName("org.postgresql.Driver");
             Conexion = DriverManager.getConnection(cadena,"postgres","oliverpozoflores10");     //Delgadillo lo cambias por tu contrasana
-          JOptionPane.showMessageDialog(null, "Se conecto");
-          
+          //JOptionPane.showMessageDialog(null, "Se conecto");
+          System.out.println("Se oonecto");
           
             
         }catch (Exception e){
