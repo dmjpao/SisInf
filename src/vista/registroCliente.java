@@ -3,10 +3,7 @@ package vista;
 
 import Metodos_sql.Consulta;
 import controlador.Cliente;
-/**
- *
- * @author 1038m
- */
+
 public class registroCliente extends javax.swing.JFrame {
 
     /**
