@@ -1,7 +1,7 @@
 
 package vista;
 
-import Metodos_sql.consulta;
+import Metodos_sql.Consulta;
 import controlador.Cliente;
 /**
  *
@@ -143,7 +143,7 @@ public class registroCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    consulta obj =new consulta();
+    Consulta obj =new Consulta();
     
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
