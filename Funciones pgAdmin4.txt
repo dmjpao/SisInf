@@ -1,0 +1,53 @@
+--Verifica la existencia del usuario y devuelve true o false, y registra el inicio de sesion en la tabla "Sesion"
+DROP FUNCTION verificarusuario(character varying,character varying);
+create or replace function VerificarUsuario (
+	vusuario varchar,
+	vcontrasena varchar
+) 
+returns varchar
+as 
+$$
+DECLARE
+	res varchar = false;
+begin 
+	if exists(
+		select nombre 
+			from usuario
+				where nombre=vusuario and contrasena=vcontrasena
+	)
+then res := true;
+		   	Insert into sesion (usuario_idusuario, pid, ip)
+			values ((select idusuario 
+			from usuario
+				where nombre=vusuario) , (select pg_backend_pid()),(select inet_client_addr()));
+		  
+		   
+end if;
+return res;
+end
+$$
+language 'plpgsql';
+
+
+
+
+
+--Devuelve el rol dado un usuario
+DROP FUNCTION Get_Rol_Usuario(varchar);
+create or replace function Get_Rol_Usuario(
+	vusuario varchar
+)
+returns integer
+as
+$$
+declare 
+	res integer;
+	
+begin 
+res= (select rol_idrol from usuario_has_rol 
+where usuario_has_rol.usuario_idusuario=(select idusuario from usuario where nombre=vusuario)
+);
+return res;
+end
+$$
+language 'plpgsql';
