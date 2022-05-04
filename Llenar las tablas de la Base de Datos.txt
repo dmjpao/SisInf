@@ -13,13 +13,13 @@ values ('Masculino');
 
 --select * from usuario
 insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
-values (1,'Pepe','12345','2002-12-02',2000.5);
+values (1,'Pepe Garcho','12345','2002-12-02',2000.5);
 insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
-values (1,'Marco','12345','2002-12-01',2650.5);
+values (1,'Marco Zambrana','12345','2002-12-01',2650.5);
 insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
-values (1,'Dorian','12345','2002-12-03',2506.5);
+values (1,'Dorian Lechusa','12345','2002-12-03',2506.5);
 insert into usuario (sexo_idsexo, nombre, contrasena, fechanacimiento,salario)
-values (2,'Andrea','12345','2002-12-03',2506.5);
+values (2,'Andrea Campero','12345','2002-12-03',2506.5);
 
 
 --select * from rol
@@ -87,13 +87,13 @@ values (4,3,true,'2002/01/01');
 
 --select * from proveedor
 insert into proveedor (nombre, correo, telefono, empresa)
-values('Juliana','July1990@hotmail.com',75687250,'Pil');
+values('Juliana Matinez','July1990@hotmail.com',75687250,'Pil');
 insert into proveedor (nombre, correo, telefono, empresa)
-values('Marcelo','MarceloRioja_99@imba.com',77427200,'Imba');
+values('Marcelo Campero','MarceloRioja_99@imba.com',77427200,'Imba');
 insert into proveedor (nombre, correo, telefono, empresa)
-values('Juan','JHDEP@delizia.of.com',72540239,'Delizia');
+values('Juan Pacheco','JHDEP@delizia.of.com',72540239,'Delizia');
 insert into proveedor (nombre, correo, telefono, empresa)
-values('Estephany','Teffy11@gmail.com',65320145,'Bimbo');
+values('Estephany Flores','Teffy11@gmail.com',65320145,'Bimbo');
 
 --select * from cliente
 insert into cliente (idcliente,nombre,telefono,fechanacimiento)
