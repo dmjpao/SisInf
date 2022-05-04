@@ -1,5 +1,6 @@
 package sisinf;
 import Modelo.Conexion;
+import Vista.InterfazListarVentas;
 import Vista.InterfazPlanillaSueldo;
 import Vista.InterfazRegistrarUsuario;
 import Vista.InterfazRegistrarNuevoProducto;
@@ -15,9 +16,13 @@ public class main {
         ventana.setLocationRelativeTo(null);*/
         
         
-        InterfazRegistrarUsuario registro = new InterfazRegistrarUsuario();
+        /*InterfazRegistrarUsuario registro = new InterfazRegistrarUsuario();
         registro.setVisible(true);
-        registro.setLocationRelativeTo(null);
+        registro.setLocationRelativeTo(null);*/
+        
+        InterfazListarVentas listar= new InterfazListarVentas();
+        listar.setVisible(true);
+        listar.setLocationRelativeTo(null);
         /*InterfazPlanillaSueldo planilla = new InterfazPlanillaSueldo();
         planilla.setVisible(true);
         planilla.setLocationRelativeTo(null);*/

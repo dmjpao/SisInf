@@ -67,4 +67,28 @@ public class ListarUsuarios {
             System.out.println("ERROR AL LISTAR LOS DATOS" + e);
         }
     }
+    
+    public void MostrarTableVentas(JTable tabla){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre de Producto");
+        modelo.addColumn("Marca del Producto");
+        modelo.addColumn("Precio del Producto");
+        modelo.addColumn("Monto de la Venta");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Nombre");
+        String consultasql = new String();
+        consultasql = "SELECT PR.nombre, D.Marca, D.Precio, V.Monto,V.Fecha, CL.nombre FROM Producto PR, Producto_Detalle D, Venta V, Cliente CL WHERE PR.Producto_Detalle_idProducto_Detalle = D.idProducto_Detalle and V.Cliente_idCliente = CL.idCliente and V.Producto_idProducto = PR.idProducto and V.Producto_Detalle_idProducto_Detalle = PR.Producto_Detalle_idProducto_Detalle";
+        Statement st;
+        try{
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consultasql);
+            while(rs.next()){
+                Object [] lista = {rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getFloat(4),rs.getString(5), rs.getString(6)};
+                modelo.addRow(lista);
+            }
+            tabla.setModel(modelo);
+        }catch(Exception e){
+            System.out.println("ERROR AL LISTAR LOS DATOS" + e);
+        }
+    }
 }
