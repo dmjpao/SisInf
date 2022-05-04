@@ -97,15 +97,15 @@ values('Estephany','Teffy11@gmail.com',65320145,'Bimbo');
 
 --select * from cliente
 insert into cliente (idcliente,nombre,telefono,fechanacimiento)
-values(6235820,'Ana',74125204,'2019/01/05');
+values(6235820,'Ana Maria Coca',74125204,'2019/01/05');
 insert into cliente (idcliente,nombre,telefono,fechanacimiento)
-values(6735469,'Maria',69547820,'2021/09/12');
+values(6735469,'Maria Ledezma',69547820,'2021/09/12');
 insert into cliente (idcliente,nombre,telefono,fechanacimiento)
-values(7455568,'Polo',74954750,'2020/04/19');
+values(7455568,'Polo Quiroga',74954750,'2020/04/19');
 insert into cliente (idcliente,nombre,telefono,fechanacimiento)
-values(4565795,'Pedro',69584210,'2021/12/20');
+values(4565795,'Pedro Delamarca',69584210,'2021/12/20');
 insert into cliente (idcliente,nombre,telefono,fechanacimiento)
-values(8455520,'Samuel',738257804,'2021/03/14');
+values(8455520,'Samuel Condori',738257804,'2021/03/14');
 
 
 --select * from producto_detalle
