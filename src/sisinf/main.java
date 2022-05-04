@@ -1,4 +1,5 @@
 package sisinf;
+import vista.frameLogin;
 import modelo.*;
 import vista.*;
 
