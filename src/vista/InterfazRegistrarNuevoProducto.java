@@ -44,7 +44,6 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         padre = new javax.swing.JPanel();
-        jPanelEliminar = new javax.swing.JPanel();
         jPanelRegistrarNuevo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,6 +56,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTextFieldEspecificaciones = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jPanelEliminar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,19 +103,6 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         );
 
         padre.setLayout(new java.awt.CardLayout());
-
-        javax.swing.GroupLayout jPanelEliminarLayout = new javax.swing.GroupLayout(jPanelEliminar);
-        jPanelEliminar.setLayout(jPanelEliminarLayout);
-        jPanelEliminarLayout.setHorizontalGroup(
-            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
-        );
-        jPanelEliminarLayout.setVerticalGroup(
-            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
-        );
-
-        padre.add(jPanelEliminar, "card3");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Nombre");
@@ -200,6 +187,19 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         );
 
         padre.add(jPanelRegistrarNuevo, "card2");
+
+        javax.swing.GroupLayout jPanelEliminarLayout = new javax.swing.GroupLayout(jPanelEliminar);
+        jPanelEliminar.setLayout(jPanelEliminarLayout);
+        jPanelEliminarLayout.setHorizontalGroup(
+            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 521, Short.MAX_VALUE)
+        );
+        jPanelEliminarLayout.setVerticalGroup(
+            jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+        );
+
+        padre.add(jPanelEliminar, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

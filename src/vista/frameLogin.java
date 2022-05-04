@@ -21,6 +21,7 @@ public class frameLogin extends javax.swing.JFrame {
     }
         Metodos_sql metodos = new Metodos_sql();
         DisenioRegistro ventanaRegistro = new DisenioRegistro();
+        InterfazRegistrarNuevoProducto ventanaRNuevoProducto = new InterfazRegistrarNuevoProducto();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,7 +153,8 @@ public class frameLogin extends javax.swing.JFrame {
               } else if(userRol == 3){ //Administrador
                   ventana.initAdministrador();
               } else if(userRol == 1){ //Encargado de Almacenes
-                  ventana.initAlmacenes();
+                  ventanaRNuevoProducto.setVisible(true);
+                  ventanaRNuevoProducto.setLocationRelativeTo(null);
               } else if(userRol == 4){ //Cajero
                   ventanaRegistro.setLocationRelativeTo(null);
                   ventanaRegistro.setVisible(true);
