@@ -170,7 +170,7 @@ public class registroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         obj.insertar(ci.getText(), nombre.getText(), Integer.parseInt(cel.getText()), fecha.getText());
         this.setVisible(false);
-        DisenioRegistro abrir=new DisenioRegistro();
+        DisenioRegistroVentas abrir=new DisenioRegistroVentas();
         abrir.setVisible(true);
         abrir.setLocationRelativeTo(null);
     }//GEN-LAST:event_guardarActionPerformed

@@ -20,7 +20,7 @@ public class frameLogin extends javax.swing.JFrame {
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }
         Metodos_sql metodos = new Metodos_sql();
-        DisenioRegistro ventanaRegistro = new DisenioRegistro();
+        DisenioRegistroVentas ventanaRegistro = new DisenioRegistroVentas();
         InterfazRegistrarNuevoProducto ventanaRNuevoProducto = new InterfazRegistrarNuevoProducto();
     /**
      * This method is called from within the constructor to initialize the form.
