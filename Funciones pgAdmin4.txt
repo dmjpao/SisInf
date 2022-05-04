@@ -1,5 +1,5 @@
 --Verifica la existencia del usuario y devuelve true o false, y registra el inicio de sesion en la tabla "Sesion"
-DROP FUNCTION verificarusuario(character varying,character varying);
+--DROP FUNCTION verificarusuario(character varying,character varying);
 create or replace function VerificarUsuario (
 	vusuario varchar,
 	vcontrasena varchar
@@ -33,7 +33,7 @@ language 'plpgsql';
 
 
 --Devuelve el rol dado un usuario
-DROP FUNCTION Get_Rol_Usuario(varchar);
+--DROP FUNCTION Get_Rol_Usuario(varchar);
 create or replace function Get_Rol_Usuario(
 	vusuario varchar
 )
