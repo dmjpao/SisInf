@@ -11,7 +11,12 @@ import javax.swing.JOptionPane;
  * @author doria
  */
 public class framePrincipal extends javax.swing.JFrame {
-
+    /*InterfazRegistrarNuevoProducto ventanaProducto=new InterfazRegistrarNuevoProducto();
+    InterfazRegistrarUsuario ventanaUsuario=new InterfazRegistrarUsuario();
+    DisenioRegistro ventanaProveedor=new DisenioRegistro();
+    registroCliente ventanaCliente=new registroCliente();
+    InterfazDetalleDeStock ventanaStock=new InterfazDetalleDeStock();
+    InterfazPlanillaSueldo ventanaSueldo=new InterfazPlanillaSueldo();*/
     /**
      * Creates new form framePrincipal
      */
@@ -35,14 +40,12 @@ public class framePrincipal extends javax.swing.JFrame {
         botonRegistrarProducto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
-        firstPanel = new javax.swing.JPanel();
-        textRENombre = new javax.swing.JTextField();
-        textREPassword = new javax.swing.JPasswordField();
-        labelNombre = new javax.swing.JLabel();
-        labelPassword = new javax.swing.JLabel();
-        botonRegistrar = new javax.swing.JButton();
-        botonCancelarRegistro = new javax.swing.JButton();
         secondPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -70,29 +73,90 @@ public class framePrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setText("registrar cliente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setText("registrar proveedor");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton3.setText("Stock almacen");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton4.setText("planilla de sueldo");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("ventas");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(111, 111, 111)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botonRegistrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(botonRegistrarEmpleado)))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(botonRegistrarEmpleado)
-                .addGap(46, 46, 46)
-                .addComponent(botonRegistrarProducto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(botonRegistrarProducto))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -100,89 +164,10 @@ public class framePrincipal extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 190, 376);
+        jPanel1.setBounds(0, 0, 570, 376);
 
         panelPrincipal.setBackground(new java.awt.Color(0, 0, 255));
         panelPrincipal.setLayout(new java.awt.CardLayout());
-
-        textRENombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textRENombreActionPerformed(evt);
-            }
-        });
-
-        textREPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textREPasswordActionPerformed(evt);
-            }
-        });
-
-        labelNombre.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        labelNombre.setText("Nombre");
-
-        labelPassword.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        labelPassword.setText("Contraseña");
-
-        botonRegistrar.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        botonRegistrar.setText("Registrar");
-        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarActionPerformed(evt);
-            }
-        });
-
-        botonCancelarRegistro.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        botonCancelarRegistro.setText("Cancelar");
-        botonCancelarRegistro.setMaximumSize(new java.awt.Dimension(109, 24));
-        botonCancelarRegistro.setMinimumSize(new java.awt.Dimension(109, 24));
-        botonCancelarRegistro.setPreferredSize(new java.awt.Dimension(109, 24));
-        botonCancelarRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCancelarRegistroActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout firstPanelLayout = new javax.swing.GroupLayout(firstPanel);
-        firstPanel.setLayout(firstPanelLayout);
-        firstPanelLayout.setHorizontalGroup(
-            firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstPanelLayout.createSequentialGroup()
-                .addGroup(firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(firstPanelLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(botonRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonCancelarRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
-                    .addGroup(firstPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(31, 31, 31)
-                        .addGroup(firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textREPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(textRENombre))))
-                .addGap(54, 54, 54))
-        );
-        firstPanelLayout.setVerticalGroup(
-            firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstPanelLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addGroup(firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textRENombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNombre))
-                .addGap(18, 18, 18)
-                .addGroup(firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textREPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPassword))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addGroup(firstPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCancelarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonRegistrar))
-                .addGap(73, 73, 73))
-        );
-
-        panelPrincipal.add(firstPanel, "card2");
 
         jLabel2.setText("test 2");
 
@@ -214,7 +199,7 @@ public class framePrincipal extends javax.swing.JFrame {
     //Rol 1 Encargado Almacenes => Accede a Registrar Productos
     public void initAlmacenes(){
         panelPrincipal.removeAll();
-        botonRegistrarEmpleado.setVisible(false);
+        botonRegistrarEmpleado.setVisible(false);        
         panelPrincipal.add(secondPanel);        
         panelPrincipal.repaint();
         panelPrincipal.revalidate();
@@ -228,66 +213,68 @@ public class framePrincipal extends javax.swing.JFrame {
         panelPrincipal.revalidate();
     }
     //Rol 3 Administrador => Accede a Registrar Empleados
-    public void initAdministrador(){
-        panelPrincipal.removeAll();
-        botonRegistrarProducto.setVisible(false);
-        panelPrincipal.add(firstPanel);
-        panelPrincipal.repaint();
-        panelPrincipal.revalidate();
-    }
-    
-    //Rol 4 Cajero => Accede a Registrar productos / Ventas
-    public void initCajero(){
-    panelPrincipal.removeAll();
-        botonRegistrarProducto.setVisible(false);
-        panelPrincipal.add(firstPanel);
-        panelPrincipal.repaint();
-        panelPrincipal.revalidate();
-    }
+
     
     
     private void botonRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarProductoActionPerformed
-        panelPrincipal.removeAll();
-        panelPrincipal.add(secondPanel);
-        panelPrincipal.repaint();
-        panelPrincipal.revalidate();
+      //  panelPrincipal.removeAll();
+      InterfazRegistrarNuevoProducto ventanaProducto=new InterfazRegistrarNuevoProducto();
+    
+        ventanaProducto.setVisible(true);
+        ventanaProducto.setLocationRelativeTo(null);
+        this.dispose();
+     //   panelPrincipal.repaint();
+     //   panelPrincipal.revalidate();
     }//GEN-LAST:event_botonRegistrarProductoActionPerformed
 
     private void botonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarEmpleadoActionPerformed
-        panelPrincipal.removeAll();
+       /* panelPrincipal.removeAll();
         panelPrincipal.add(firstPanel);
         panelPrincipal.repaint();
-        panelPrincipal.revalidate();
+        panelPrincipal.revalidate();*/
+       InterfazRegistrarUsuario ventanaUsuario=new InterfazRegistrarUsuario();
+       ventanaUsuario.setVisible(true);
+       ventanaUsuario.setLocationRelativeTo(null);
+       this.dispose();
+       //this.dispose();
     }//GEN-LAST:event_botonRegistrarEmpleadoActionPerformed
 
-    private void textRENombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textRENombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textRENombreActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       registroCliente ventanaCliente=new registroCliente();
+        ventanaCliente.setVisible(true);
+       ventanaCliente.setLocationRelativeTo(null);
+       this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void textREPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textREPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textREPasswordActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       DisenioRegistro ventanaProveedor=new DisenioRegistro();
+    
+        ventanaProveedor.setVisible(true);
+       ventanaProveedor.setLocationRelativeTo(null);
+       this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        String nombre = textRENombre.getText();
-        String pass   = new String(textREPassword.getPassword());
-        try {
-           int i = metodos.guardar(nombre,pass);
-           textRENombre.setText("");
-           textREPassword.setText("");
-           if(i > 0){
-               JOptionPane.showMessageDialog(this, "Datos registrados correctamente!");
-           } else {
-               JOptionPane.showMessageDialog(this, "Error no se pudo realizar el registro!");
-           }
-        } catch (SQLException ex) {
-            Logger.getLogger(framePrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_botonRegistrarActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        InterfazDetalleDeStock ventanaStock=new InterfazDetalleDeStock();
+        ventanaStock.setVisible(true);
+        ventanaStock.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void botonCancelarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarRegistroActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_botonCancelarRegistroActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      
+    InterfazPlanillaSueldo ventanaSueldo=new InterfazPlanillaSueldo();
+        ventanaSueldo.setVisible(true);
+        ventanaSueldo.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DisenioRegistroVentas ventanaVenta=new DisenioRegistroVentas();
+        ventanaVenta.setVisible(true);
+        ventanaVenta.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,20 +312,18 @@ public class framePrincipal extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonCancelarRegistro;
-    private javax.swing.JButton botonRegistrar;
     public javax.swing.JButton botonRegistrarEmpleado;
     public javax.swing.JButton botonRegistrarProducto;
-    private javax.swing.JPanel firstPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelNombre;
-    private javax.swing.JLabel labelPassword;
     public javax.swing.JLabel lblNombre;
     private javax.swing.JPanel panelPrincipal;
     public javax.swing.JPanel secondPanel;
-    private javax.swing.JTextField textRENombre;
-    private javax.swing.JPasswordField textREPassword;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,9 +13,7 @@ import modelo.ListarUsuarios;
  */
 public class InterfazPlanillaSueldo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InterfazPlanillaSueldo
-     */
+    
     public InterfazPlanillaSueldo() {
         initComponents();
     }
@@ -33,6 +31,7 @@ public class InterfazPlanillaSueldo extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         jButtonPlanilla = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablePlanilla = new javax.swing.JTable();
 
@@ -56,6 +55,13 @@ public class InterfazPlanillaSueldo extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -63,13 +69,19 @@ public class InterfazPlanillaSueldo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jButtonPlanilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(36, 36, 36))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonPlanilla)
-                .addGap(191, 191, 191))
+                .addGap(138, 138, 138)
+                .addComponent(jButton1)
+                .addGap(30, 30, 30))
         );
 
         jTablePlanilla.setModel(new javax.swing.table.DefaultTableModel(
@@ -113,6 +125,13 @@ public class InterfazPlanillaSueldo extends javax.swing.JFrame {
         lp.MostrarTable2(jTablePlanilla);
     }//GEN-LAST:event_jButtonPlanillaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        InterfazRegistrarUsuario anterior=new InterfazRegistrarUsuario();
+        anterior.setVisible(true);
+        anterior.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -149,6 +168,7 @@ public class InterfazPlanillaSueldo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonPlanilla;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;

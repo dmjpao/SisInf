@@ -42,7 +42,8 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         padre = new javax.swing.JPanel();
         jPanelRegistrarNuevo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,7 +64,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 0, 0));
         jPanel3.setForeground(new java.awt.Color(51, 51, 51));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton2.setText("registrar nuevo producto");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,11 +72,17 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton3.setText("eliminar producto");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("Stock");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("registrar Proveedores");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -83,13 +90,12 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
         jPanel3Layout.setVerticalGroup(
@@ -97,26 +103,28 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(186, 186, 186)
                 .addComponent(jButton2)
-                .addGap(79, 79, 79)
-                .addComponent(jButton3)
+                .addGap(75, 75, 75)
+                .addComponent(jButton5)
+                .addGap(76, 76, 76)
+                .addComponent(jButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         padre.setLayout(new java.awt.CardLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("marca");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("precio");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("cantidad");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +132,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("especificaciones");
 
         javax.swing.GroupLayout jPanelRegistrarNuevoLayout = new javax.swing.GroupLayout(jPanelRegistrarNuevo);
@@ -132,36 +140,34 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         jPanelRegistrarNuevoLayout.setHorizontalGroup(
             jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                        .addContainerGap(377, Short.MAX_VALUE)
+                .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRegistrarNuevoLayout.createSequentialGroup()
+                        .addGap(293, 293, 293)
                         .addComponent(jButton1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelRegistrarNuevoLayout.createSequentialGroup()
+                    .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                                .addGap(136, 136, 136)
+                                .addGap(52, 52, 52)
                                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRegistrarNuevoLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(113, 113, 113)
-                        .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTextFieldNombre)
-                            .addComponent(JTextFieldMarca)
-                            .addComponent(JTextFieldPrecio)
-                            .addComponent(JTextFieldCantidad)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JTextFieldCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                            .addComponent(JTextFieldPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JTextFieldMarca, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JTextFieldNombre, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldEspecificaciones))))
-                .addGap(55, 55, 55))
+                .addGap(80, 80, 80))
         );
         jPanelRegistrarNuevoLayout.setVerticalGroup(
             jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRegistrarNuevoLayout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+                .addGap(71, 71, 71)
                 .addGroup(jPanelRegistrarNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(JTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,7 +189,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(55, 55, 55)
                 .addComponent(jButton1)
-                .addGap(151, 151, 151))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         padre.add(jPanelRegistrarNuevo, "card2");
@@ -196,7 +202,7 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         );
         jPanelEliminarLayout.setVerticalGroup(
             jPanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 497, Short.MAX_VALUE)
         );
 
         padre.add(jPanelEliminar, "card3");
@@ -259,19 +265,26 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        padre.removeAll();
-       padre.add(jPanelEliminar);
-       padre.repaint();
-       padre.revalidate();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        padre.removeAll();
        padre.add(jPanelRegistrarNuevo);
        padre.repaint();
        padre.revalidate();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       InterfazDetalleDeStock siguiente=new InterfazDetalleDeStock();
+        siguiente.setVisible(true);
+        siguiente.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DisenioRegistro siguiente =new DisenioRegistro();
+        siguiente.setVisible(true);
+        siguiente.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,7 +328,8 @@ public class InterfazRegistrarNuevoProducto extends javax.swing.JFrame {
     private javax.swing.JTextField JTextFieldPrecio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
